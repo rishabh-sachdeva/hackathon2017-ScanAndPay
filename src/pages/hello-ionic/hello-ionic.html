@@ -10,13 +10,31 @@
 
 <ion-content padding>
 
-  <p>
+    <div class="scannerWrapper">
+      <button ion-button round (click)='startScanning()'>Scan</button>
+    </div>
+    
+    <div class="shoppingCartListWrapper">
+      <div class="shoppingCartListHeader">Shopping Cart</div>
+      <div class="shoppingCartListBody">
+          <ion-list>
+            <ion-item *ngFor="let item of itemList">
+              <div class="itemWrapper">
+                <div class="itemLabel">{{item}}</div>
+                <div class="itemPrice">$5</div>
+                <div class="remove">X</div>
+              </div>
+            </ion-item>
+          </ion-list>
+      </div>
+    </div>
+  <!--<p>
     <button ion-button color="primary" (click)='startScanning()'>Scan</button>
   </p>
 
   <h1>Products in Cart</h1>
   <ion-list>
     <ion-item *ngFor="let item of itemList">{{item}}</ion-item>
-  </ion-list>
+  </ion-list>-->
 
 </ion-content>

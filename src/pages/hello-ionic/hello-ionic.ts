@@ -18,7 +18,7 @@ export class HelloIonicPage {
       if(productList) {
         this.itemList = productList;
       } else {
-        this.itemList.push('Item 1');
+        this.itemList.push.apply(this.itemList, ['Item 1','Item 2','Item 3','Item 4']);
       }
     });
 
