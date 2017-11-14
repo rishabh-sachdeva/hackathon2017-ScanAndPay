@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Storage } from '@ionic/storage';
+import { Product } from '../../app/models/product-model'
 
 @Component({
   selector: 'page-hello-ionic',
