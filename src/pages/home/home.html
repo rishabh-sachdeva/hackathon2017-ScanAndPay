@@ -1,0 +1,32 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ScanAndPay</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Shop</ion-label>
+    <ion-select [(ngModel)]="shopId" (ionChange)="handleShopChangeHandler(shopId)">
+      <ion-option *ngFor="let shop of listOfShops" 
+            value="{{shop.id}}">{{shop.name}}, {{shop.location}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Location</ion-label>
+    <ion-select [(ngModel)]="locationId" (ionChange)="handleLocationChangeHandler(locationId)">
+        <ion-option *ngFor="let location of listOfLocations" 
+              value="{{location.id}}">{{location.location}}</ion-option>
+      </ion-select>
+  </ion-item>
+  <button ion-button round (click)="handleShopNowOnClick($event)">Shop Now</button>
+</ion-content>

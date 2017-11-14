@@ -10,13 +10,16 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { HomePage} from '../pages/home/home'
 
 @NgModule({
   declarations: [
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    HomePage
+
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    HomePage
   ],
   providers: [
     StatusBar,
