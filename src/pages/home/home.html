@@ -14,19 +14,30 @@
 
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>Shop</ion-label>
-    <ion-select [(ngModel)]="shopId" (ionChange)="handleShopChangeHandler(shopId)">
-      <ion-option *ngFor="let shop of listOfShops" 
-            value="{{shop.id}}">{{shop.name}}, {{shop.location}}</ion-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-    <ion-label>Location</ion-label>
-    <ion-select [(ngModel)]="locationId" (ionChange)="handleLocationChangeHandler(locationId)">
-        <ion-option *ngFor="let location of listOfLocations" 
-              value="{{location.id}}">{{location.location}}</ion-option>
-      </ion-select>
-  </ion-item>
-  <button ion-button round (click)="handleShopNowOnClick($event)">Shop Now</button>
+  <div class="logoWrapper">
+    <div class="logo"></div>
+  </div>
+  <div class="mainContainer">
+    <div class="mainWrapper">
+      <div class="mainWrapperBody">
+          <ion-item>
+              <ion-label>Shop</ion-label>
+              <ion-select [(ngModel)]="shopId" (ionChange)="handleShopChangeHandler(shopId)">
+                <ion-option *ngFor="let shop of listOfShops" 
+                      value="{{shop.id}}">{{shop.name}}, {{shop.location}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Location</ion-label>
+              <ion-select [(ngModel)]="locationId" (ionChange)="handleLocationChangeHandler(locationId)">
+                  <ion-option *ngFor="let location of listOfLocations" 
+                        value="{{location.id}}">{{location.location}}</ion-option>
+                </ion-select>
+            </ion-item>
+      </div>
+      <div class="mainWrapperHandler">
+          <button ion-button round (click)="handleShopNowOnClick($event)">Shop Now</button>
+      </div>
+    </div>
+  </div>
 </ion-content>
