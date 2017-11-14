@@ -3,6 +3,22 @@ page-home {
         background-color: #0075BA !important;
         .scroll-content {
             overflow-y: auto;
+            .label-md {
+                margin: 0;
+            }
+
+            .select-md {
+                padding: 0;
+            }
+
+            ion-select {
+                width: 70%;
+                max-width: 70%;
+            }
+
+            ion-label {
+                width: 30%;
+            }
         }
         .logoWrapper {
             width: 100%;
