@@ -17,9 +17,6 @@ export class HelloIonicPage {
     this.storage.get('productList').then((productList) => {
       if(productList) {
         this.itemList = productList;
-      } else {
-        this.itemList.push("Product1");
-        console.log("in else ");
       }
     });
 
@@ -33,7 +30,9 @@ export class HelloIonicPage {
 	}, (err) => {
 	 alert('Scanning Barcode fail');
   });
-  
-  
+  }
+
+  public remove(item) {
+    this.remove
   }
 }
