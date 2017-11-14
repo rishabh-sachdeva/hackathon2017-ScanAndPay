@@ -17,6 +17,8 @@ export class HelloIonicPage {
     this.storage.get('productList').then((productList) => {
       if(productList) {
         this.itemList = productList;
+      } else {
+        this.itemList.push('Item 1');
       }
     });
 

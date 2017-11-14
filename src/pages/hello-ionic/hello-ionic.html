@@ -16,14 +16,7 @@
 
   <h1>Products in Cart</h1>
   <ion-list>
-    <ion-item-sliding  #item *ngFor="let item of itemList">
-      <ion-item>
-        {{item}}
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button (click)="remove(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
+    <ion-item *ngFor="let item of itemList">{{item}}</ion-item>
   </ion-list>
 
 </ion-content>
