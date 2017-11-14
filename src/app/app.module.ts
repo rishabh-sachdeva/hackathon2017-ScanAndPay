@@ -12,6 +12,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HomePage} from '../pages/home/home'
 import { IonicStorageModule } from '@ionic/storage';
+import { ProductServiceProvider } from '../providers/product-service/product-service';
+import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,8 @@ import { IonicStorageModule } from '@ionic/storage';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +46,9 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    HttpClient,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProductServiceProvider
   ]
 })
 export class AppModule {}

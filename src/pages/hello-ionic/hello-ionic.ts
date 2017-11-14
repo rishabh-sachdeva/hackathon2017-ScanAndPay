@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Storage } from '@ionic/storage';
-import { Product } from '../../app/models/product-model'
+import { Product } from '../../app/models/product-model';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+import { Http,Headers } from '@angular/http';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home'
 
 @Component({
   selector: 'page-hello-ionic',
@@ -14,12 +19,11 @@ import { Product } from '../../app/models/product-model'
 // }
 export class HelloIonicPage {
   private itemList = [];
-  constructor(private barcodeScanner: BarcodeScanner, private storage: Storage) {
+  private total = 0;
+  constructor(public navCtrl: NavController,private barcodeScanner: BarcodeScanner, private storage: Storage, private httpClient: Http) {
     this.storage.get('productList').then((productList) => {
       if(productList) {
         this.itemList = productList;
-      } else {
-        this.itemList.push.apply(this.itemList, ['Item 1','Item 2','Item 3','Item 4']);
       }
     });
 
@@ -27,8 +31,11 @@ export class HelloIonicPage {
   public startScanning() {
     
   this.barcodeScanner.scan().then((barcodeData) => {
-    this.itemList.push(barcodeData.text);
-    this.storage.set('productList', this.itemList); 
+    this.httpClient.get('http://18.221.126.205:8080/'+barcodeData.text).map(res => res.json()).subscribe(data => {
+      this.itemList.push(data);
+      this.storage.set('productList', this.itemList); 
+      this.total = this.total + data.price;
+    });
     
 	}, (err) => {
 	 alert('Scanning Barcode fail');
@@ -36,6 +43,19 @@ export class HelloIonicPage {
   }
 
   public remove(item) {
-    this.remove
+    this.total = this.total - item.price;
+    this.itemList = this.itemList.filter(i => i !== item);
+    this.storage.set('productList', this.itemList); 
+  }
+  public getTotal() {
+    return this.total;
+  }
+
+  public checkout() {
+    this.total = 0;
+    this.itemList = null;
+    this.storage.set('productList', this.itemList); 
+    alert('Checkout Successful');
+    this.navCtrl.setRoot(HomePage);
   }
 }

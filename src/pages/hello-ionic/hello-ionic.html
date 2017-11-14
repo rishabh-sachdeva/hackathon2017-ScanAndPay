@@ -20,9 +20,9 @@
           <ion-list>
             <ion-item *ngFor="let item of itemList">
               <div class="itemWrapper">
-                <div class="itemLabel">{{item}}</div>
-                <div class="itemPrice">$5</div>
-                <div class="remove">X</div>
+                <div class="itemLabel">{{item.name}}</div>
+                <div class="itemPrice">{{item.price}}</div>
+                <div class="remove" (click)='remove(item)'>X</div>
               </div>
             </ion-item>
           </ion-list>
@@ -38,3 +38,14 @@
   </ion-list>-->
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+        <ion-item padding>
+          <h2>Total : {{total}}</h2>
+          <button default ion-button item-right (click)='checkout()'>Checkout</button>
+        </ion-item>
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-footer>
