@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import locations from '../../assets/common/ts/locations';
 import shops from '../../assets/common/ts/shops';
-
+import { HelloIonicPage } from '../hello-ionic/hello-ionic'
 /**
  * Generated class for the HomePage page.
  *
@@ -45,7 +45,7 @@ export class HomePage {
     console.log(this.selectedShopId);
     console.log(this.selectedLocationId);
     if(this.selectedLocationId !== null && this.selectedShopId !== null) {
-      console.log('call new screen here');
+      this.navCtrl.push(HelloIonicPage);
     }
   }
 

@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hello Ionic</ion-title>
+    <ion-title>Cart</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,8 +14,16 @@
     <button ion-button color="primary" (click)='startScanning()'>Scan</button>
   </p>
 
+  <h1>Products in Cart</h1>
   <ion-list>
-    <ion-item *ngFor="let item of itemList">{{item}}</ion-item>
+    <ion-item-sliding  #item *ngFor="let item of itemList">
+      <ion-item>
+        {{item}}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="remove(item)">Remove</button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
 </ion-content>
